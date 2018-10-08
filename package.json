@@ -1,0 +1,22 @@
+{
+  "author": "YOU <YOU@example.com>",
+  "name": "my_actionhero_project",
+  "description": "my actionhero project",
+  "version": "0.1.0",
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "dependencies": {
+    "actionhero": "^19.0.2",
+    "ioredis": "latest",
+    "ws": "latest"
+  },
+  "devDependencies": {
+    "jest": "latest"
+  },
+  "scripts": {
+    "start": "actionhero start",
+    "actionhero": "actionhero",
+    "test": "jest"
+  }
+}
