@@ -1,18 +1,24 @@
 {
-  "author": "YOU <YOU@example.com>",
-  "name": "my_actionhero_project",
-  "description": "my actionhero project",
+  "author": "Eddie Torrejon <eddie@torrejon.ca>",
+  "name": "ah-swaggerclient-plugin",
+  "description": "Generate API clients from swagger docs",
   "version": "0.1.0",
   "engines": {
     "node": ">=8.0.0"
   },
   "dependencies": {
     "actionhero": "^19.0.2",
+    "fetch-swagger-schema": "^0.1.2",
     "ioredis": "latest",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2",
+    "request-promise-native": "^1.0.5",
+    "swagger-node-client": "^0.2.2",
     "ws": "latest"
   },
   "devDependencies": {
-    "jest": "latest"
+    "jest": "latest",
+    "nock": "^10.0.1"
   },
   "scripts": {
     "start": "actionhero start",
