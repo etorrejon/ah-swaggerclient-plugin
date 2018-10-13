@@ -1,7 +1,6 @@
 const path = require('path');
 const ActionHero = require('actionhero');
 const actionhero = new ActionHero.Process();
-const nock = require('nock');
 
 describe('swaggerClient', () => {
 
@@ -9,9 +8,6 @@ describe('swaggerClient', () => {
 
     let api;
     let configuredApis;
-    const requestMocks = [];
-    const sampleSwaggerDoc = require('./swaggerDoc.json');
-
 
     beforeEach(async () => {
       configuredApis = [
@@ -27,10 +23,6 @@ describe('swaggerClient', () => {
         }
       ];
 
-      configuredApis.forEach(api => {
-        requestMocks.push(nock(api.baseUrl).get(api.docPath).reply(200, sampleSwaggerDoc));
-      });
-
       const configChanges = {
         swaggerClient: {
           apis: configuredApis.map(api => {
@@ -45,6 +37,13 @@ describe('swaggerClient', () => {
         }
       };
 
+      mockSwaggerClient = jest.mock('swagger-client', () => {
+        return () => { return {
+            this: 'is a fake swagger client'
+          };
+        };
+      });
+
       api = await actionhero.start({ configChanges });
     });
 
@@ -52,10 +51,8 @@ describe('swaggerClient', () => {
       await actionhero.stop();
     });
 
-    it('fetches the swagger schema for each configured API', async () => {
-      requestMocks.forEach((mock) => {
-        expect(mock.isDone()).toEqual(true);
-      });
+    it('creates a client for each configured API and adds it to the global "api" object', async () => {
+      expect(Object.keys(api.swaggerClients).length).toEqual(configuredApis.length);
     });
 
   });

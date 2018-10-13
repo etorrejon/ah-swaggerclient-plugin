@@ -1,6 +1,5 @@
-const {Initializer, api} = require('actionhero');
-const request = require('request-promise-native');
-const swaggerNodeClient = require('swagger-node-client');
+const { Initializer, api } = require('actionhero');
+const Swagger = require('swagger-client');
 
 module.exports = class SwaggerClient extends Initializer {
   constructor () {
@@ -9,17 +8,17 @@ module.exports = class SwaggerClient extends Initializer {
     this.loadPriority = 1000;
     this.startPriority = 1000;
     this.stopPriority = 1000;
+
+    api.swaggerClients = {};
   }
 
   async initialize () {
     const apis = api.config.swaggerClient.apis;
 
-    apis.forEach(async (api) => {
-        const swaggerDoc = await request.get(api.swaggerDocUrl);
-        // todo: read swagger spec and generate a client
+    apis.forEach(async (configuredApi) => {
+        const swaggerClient = await Swagger(configuredApi.swaggerDocUrl);
+        api.swaggerClients[configuredApi.name] = swaggerClient;
     });
-
-    api.clients = [];
   }
 
   async start () {

@@ -1,5 +1,5 @@
 exports.default = {
-    swagger: function(api) {
+    swaggerClient: function(api) {
         return {
             apis: [
                 // add your APIs here
