@@ -1,0 +1,19 @@
+{
+    "env": {
+        "node": 1,
+        "es6": true,
+        "jest": true
+    },
+    "parserOptions": {
+        "ecmaVersion": 2017,
+        "sourceType": "module",
+        "ecmaFeatures": {
+        }
+    },
+    "extends": [
+        "eslint:recommended"
+    ],
+    "rules": {
+        "semi": 2
+    }
+}
