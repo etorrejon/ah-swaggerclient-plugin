@@ -19,13 +19,21 @@
   "devDependencies": {
     "eslint": "^5.7.0",
     "jest": "latest",
+    "jest-junit": "^5.2.0",
     "nock": "^10.0.1"
   },
   "scripts": {
     "start": "actionhero start",
     "actionhero": "actionhero",
     "test": "jest --coverage",
+    "test-ci": "jest --ci --reporters=default --reporters=jest-junit --runInBand",
     "lint": "npx eslint --fix .",
     "lint-ci": "npx eslint ."
+  },
+  "jest": {
+    "reporters": [
+      "default",
+      "jest-junit"
+    ]
   }
 }

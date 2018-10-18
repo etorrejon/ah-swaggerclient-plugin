@@ -8,7 +8,11 @@ jobs:
       - checkout
       - run: npm ci
       - run: npm run lint-ci
-      - run: npm test
+      - run:
+        name: Run tests
+        command: npm run test-ci
+        environment:
+          JEST_JUNIT_OUTPUT: "junit.xml"
 workflows:
   version: 2
   test:

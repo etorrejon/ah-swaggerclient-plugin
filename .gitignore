@@ -23,3 +23,6 @@ cache.dump
 /nbproject/*
 /.idea/*
 .vscode
+
+# Test artifacts
+junit.xml
