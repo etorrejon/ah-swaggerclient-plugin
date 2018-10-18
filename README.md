@@ -1,14 +1,40 @@
-# My actionhero Project
+# ah-swaggerclient-plugin
 
-*visit www.actionherojs.com for more information*
+Generate API clients from Swagger 2.0 specifications!
+
+This plugin uses the [swagger-client](https://www.npmjs.com/package/swagger-client) library to attach API clients to the ActionHero `api` object.
 
 ## To install:
 (assuming you have [node](http://nodejs.org/) and NPM installed)
 
-`npm install`
+`npm install --save ah-swaggerclient-plugin`
 
-## To Run:
-`npm start`
+## Configuring the plugin
+
+See `config/swaggerClient.js` for an example. It's pretty easy to do, just provide a name for the API and a URL to the Swagger doc.
+
+e.g.
+
+```
+exports.default = {
+    swaggerClient: (api) => {   // eslint-disable-line
+        return {
+            apis: [
+                {
+                    name: 'petStore',
+                    swaggerDocUrl: 'https://petstore.swagger.io/v2/swagger.json',
+                }
+            ]
+        };
+    }
+};
+```
+
+You can then access your API like this:
+
+`const petApi = api.swaggerClients.petStore.apis.pet`
+
+See the documentation for [swagger-client](https://github.com/swagger-api/swagger-js#constructor-and-methods) for details on how to call API methods.
 
 ## To Test:
 `npm test`
