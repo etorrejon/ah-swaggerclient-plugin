@@ -2,7 +2,7 @@ version: 2
 jobs:
   test:
     docker:
-      - image: circleci/<language>:<version TAG>
+      - image: circleci/node:latest
     steps:
       - checkout
       - run: npm i
