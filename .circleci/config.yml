@@ -6,7 +6,7 @@ jobs:
       - image: redis:latest
     steps:
       - checkout
-      - run: npm i
+      - run: npm ci
       - run: npm run lint-ci
       - run: npm test
 workflows:
