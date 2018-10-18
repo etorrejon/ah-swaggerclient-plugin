@@ -2,6 +2,7 @@
   "author": "Eddie Torrejon <eddie@torrejon.ca>",
   "name": "ah-swaggerclient-plugin",
   "description": "Generate API clients from swagger docs",
+  "license": "MIT",
   "version": "1.0.0",
   "engines": {
     "node": ">=8.0.0"
