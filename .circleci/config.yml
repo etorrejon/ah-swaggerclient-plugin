@@ -12,7 +12,13 @@ jobs:
           name: Run tests
           command: npm run test-ci
           environment:
+            JEST_JUNIT_OUTPUT_DIR: "test-results"
             JEST_JUNIT_OUTPUT: "junit.xml"
+      - store_test_results:
+          path: "test-results"
+      - store_artifacts:
+          path: "test-results"
+        
 workflows:
   version: 2
   test:
