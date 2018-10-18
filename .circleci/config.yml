@@ -6,7 +6,7 @@ jobs:
     steps:
       - checkout
       - run: npm i
-      - run: npm lint-ci
+      - run: npm run lint-ci
       - run: npm test
 workflows:
   version: 2
