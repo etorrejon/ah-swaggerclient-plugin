@@ -20,6 +20,10 @@
   "engines": {
     "node": ">=8.0.0"
   },
+  "peerDependencies": {
+    "actionhero": "^19.0.2",
+    "swagger-client": "^3.8.21"
+  },
   "dependencies": {
     "actionhero": "^19.0.2",
     "fetch-swagger-schema": "^0.1.2",
@@ -43,7 +47,8 @@
     "test-ci": "jest --ci --reporters=default --reporters=jest-junit --runInBand",
     "lint": "npx eslint --fix .",
     "lint-ci": "npx eslint .",
-    "start-redis": "docker run -d -p 6379:6379 redis:latest"
+    "start-redis": "docker run -d -p 6379:6379 redis:latest",
+    "postinstall": "node scripts/postinstall.js"
   },
   "jest": {
     "reporters": [

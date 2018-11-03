@@ -1,5 +1,5 @@
-const assert = require('assert');
 const { Initializer, api } = require('actionhero');
+const assert = require('assert');
 const Swagger = require('swagger-client');
 
 module.exports = class SwaggerClient extends Initializer {
@@ -9,19 +9,20 @@ module.exports = class SwaggerClient extends Initializer {
     this.loadPriority = 1000;
     this.startPriority = 1000;
     this.stopPriority = 1000;
-
-    api.swaggerClients = {};
   }
 
   async initialize () {
-    const apis = api.config.swaggerClient.apis;
+    assert(api);
+    api.swaggerClients = {};
 
-    apis.forEach(async (configuredApi) => {
+
+    const configuredApis = api.config.swaggerClient.apis;
+    configuredApis.forEach(async (configuredApi) => {
       assert(!!configuredApi);
       assert(!!configuredApi.name);
       assert(!!configuredApi.swaggerDocUrl);
 
-      const swaggerClient = await Swagger(`${configuredApi.swaggerDocUrl}`);
+      const swaggerClient = await Swagger(configuredApi.swaggerDocUrl);
       api.swaggerClients[configuredApi.name] = swaggerClient;
     });
   }

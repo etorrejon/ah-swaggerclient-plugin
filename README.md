@@ -19,7 +19,7 @@ e.g.
 
 ```
 exports.default = {
-    swaggerClient: (api) => {   // eslint-disable-line
+    swaggerClient: (api) => {
         return {
             apis: [
                 {
