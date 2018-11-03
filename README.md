@@ -1,6 +1,6 @@
 # ah-swaggerclient-plugin
 
-Generate API clients from Swagger 2.0 specifications!
+Generate API clients from Swagger 2.0/Open API 3.0 specifications!
 
 This plugin uses the [swagger-client](https://www.npmjs.com/package/swagger-client) library to attach API clients to the ActionHero `api` object.
 
