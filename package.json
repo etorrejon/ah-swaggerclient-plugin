@@ -3,6 +3,19 @@
   "name": "ah-swaggerclient-plugin",
   "description": "Generate API clients from swagger docs using the https://www.npmjs.com/package/swagger-client library",
   "license": "MIT",
+  "homepage": "http://actionherojs.com",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/etorrejon/ah-swaggerclient-plugin.git"
+  },
+  "keywords": [
+    "actionhero",
+    "ah",
+    "swagger",
+    "swaggerclient",
+    "openapi",
+    "api"
+  ],
   "version": "1.0.0",
   "engines": {
     "node": ">=8.0.0"
