@@ -1,3 +1,3 @@
 #!/bin/bash
 
-npm publish . --access public --dry-run
+npm publish . --access public
