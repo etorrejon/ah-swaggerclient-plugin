@@ -1,12 +1,14 @@
 #!/usr/bin/env node
 
-const fs = require('fs');
-const path = require('path');
+// thanks to https://github.com/bayssmekanique
+// https://github.com/walbertoibarra/ah-swagger-plugin/blob/master/scripts/postinstall.js
 
-const projectApiConfigLocation = path.normalize(process.cwd() + '/../../config/api.js');
+const fs = require('fs')
+const path = require('path')
 
-const localConfigFile = path.normalize(path.join(__dirname, '/../config/swaggerClient.js'));
-const projectConfigFile = path.normalize(process.cwd() + '/../../config/swaggerClient.js');
+const projectApiConfigLocation = path.normalize(process.cwd() + '/../../config/api.js')
+const localConfigFile = path.normalize(path.join(__dirname, '/../config/swaggerClient.js'))
+const projectConfigFile = path.normalize(process.cwd() + '/../../config/swaggerClient.js')
 
 try {
   fs.lstatSync(projectApiConfigLocation)
@@ -19,5 +21,5 @@ try {
     fs.createReadStream(localConfigFile).pipe(fs.createWriteStream(projectConfigFile))
   }
 } catch (ex) {
-  console.log('postinstall script failed: %s %s', ex.message, ex.stack)
+  console.log('postinstall script skipped')
 }
