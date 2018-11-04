@@ -5,13 +5,13 @@ const ActionHero = require('actionhero');
 const actionhero = new ActionHero.Process();
 
 const createApiMocks = apis => {
-      apis.forEach(configuredApi => {
-        const parsedUrl = url.parse(configuredApi.swaggerDocUrl);
-        const baseUrl = `${parsedUrl.protocol}//${parsedUrl.host}/`;
-        const path = parsedUrl.path;
+  apis.forEach(configuredApi => {
+    const parsedUrl = url.parse(configuredApi.swaggerDocUrl);
+    const baseUrl = `${parsedUrl.protocol}//${parsedUrl.host}/`;
+    const path = parsedUrl.path;
 
-        nock(baseUrl).get(path).reply(200, require('./swaggerDoc.json'));
-      });
+    nock(baseUrl).get(path).reply(200, require('./swaggerDoc.json'));
+  });
 };
 
 const buildConfigChanges = configuredApis => {
@@ -31,7 +31,6 @@ const buildConfigChanges = configuredApis => {
 };
 
 describe('swaggerClient', () => {
-
   describe('when initializing', () => {
     let api;
     let configuredApis;
@@ -70,7 +69,5 @@ describe('swaggerClient', () => {
       expect(springfieldApi.apis.pet.addPet).toBeDefined();
       expect(typeof api.swaggerClients.springfieldApi.apis.pet.addPet).toEqual('function');
     });
-
   });
-
 });

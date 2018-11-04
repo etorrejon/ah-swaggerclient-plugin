@@ -15,7 +15,6 @@ module.exports = class SwaggerClient extends Initializer {
     assert(api);
     api.swaggerClients = {};
 
-
     const configuredApis = api.config.swaggerClient.apis;
     configuredApis.forEach(async (configuredApi) => {
       assert(!!configuredApi);
